@@ -1,0 +1,61 @@
+@model Dish
+<div class="container">
+    @await Html.PartialAsync("Partials/_NavForm")
+    <div class="row text-center">
+        <h2 class="display-4">Añadir un Plato</h2>
+        <hr>
+    </div>
+    <div class="row">
+        <form asp-action="CreateDishes" asp-controller="Home" method="post">
+            <div class="row">
+                <div class="col mx-2">
+                    <div class="row">
+                        <Label asp-for="Name">Nombre Del Plato: </Label>
+                    </div>
+                    <div class="row">
+                        <input asp-for="Name">
+                        <span asp-validation-for="Name"></span>
+                    </div>
+                    <div class="row">
+                        <Label asp-for="Calories">N° de calorias: </Label>
+                    </div>
+                    <div class="row">
+                        <input asp-for="Calories">
+                        <span asp-validation-for="Calories"></span>
+                    </div>
+                </div>
+                <div class="col mx-2">
+                    <div class="row">
+                        <label asp-for="ChefId">Nombre Del chef</label>
+                    </div>
+                    <div class="row">
+                        <select asp-for="ChefId">
+                            @foreach (var item in ViewBag.ListaC)
+                            {
+                                <option value="@item.ChefId"> @item.Name @item.Apellido</option>
+                            }
+                            <span asp-validation-for="ChefId"></span>
+                        </select>
+                    </div>
+                </div>
+                <div class="col mx-2">
+                    <div class="row">
+                        <label asp-for="Tastinness">Sabrosura:</label>
+                    </div>
+                    <div class="row">
+                        <select asp-for="Tastinness">
+                            @for (int i = 1; i <= 5; i++)
+                            {
+                                <option value="@i">@i</option>
+                            }
+                        </select>
+                        <span asp-validation-for="Tastinness"></span>
+                    </div>
+                    <button type="submit" class="btn btn-primary mt-5">Añadir Plato</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+
+</div>

@@ -1,0 +1,31 @@
+<div class="container">
+    @await Html.PartialAsync("Partials/_NavForm")
+    <div class="row text-center">
+        <h2 class="display-6">¡Echa un vistazo a nuestros sabrosos platos!</h2>
+        <hr>
+    </div>
+    <div class="row table-responsive">
+        <table class="table table-striped table-bordered ">
+            <thead>
+                <tr>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Chef</th>
+                    <th scope="col">Sabrosura</th>
+                    <th scope="col">Calorias</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in ViewBag.dishes)
+                {
+                    <tr>
+                        <td>@item.Name</td>
+                        <td>@item.Creator.Name @item.Creator.Apellido </td>
+                        <td>@item.Tastinness</td>
+                        <td>@item.Calories</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+</div>

@@ -1,0 +1,41 @@
+@model Chef
+<div class="container">
+    @await Html.PartialAsync("Partials/_NavForm")
+    <div class="row text-center">
+        <h2 class="display-4">Añadir un Chef</h2>
+        <hr>
+    </div>
+    <div class="row">
+        <form asp-action="CreateChef" asp-controller="Home" method="post">
+            <div class="row my-2">
+                <div class="col col-3">
+                    <label asp-for="Name">Nombre:</label>
+                </div>
+                <div class="col">
+                    <input asp-for="Name">
+                    <span asp-validation-for="Name"></span>
+                </div>
+            </div>
+            <div class="row my-2">
+                <div class="col col-3">
+                    <label asp-for="Apellido">Apellido:</label>
+                </div>
+                <div class="col">
+                    <input asp-for="Apellido">
+                    <span asp-validation-for="Apellido"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col col-3">
+                    <label asp-for="Age">Fecha de nacimiento:</label>
+                </div>
+                <div class="col col-">
+                    <input asp-for="Age">
+                    <span asp-validation-for="Age"></span>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary mt-3">Añadir chef</button>
+        </form>
+    </div>
+
+</div>
